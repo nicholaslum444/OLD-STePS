@@ -1,0 +1,48 @@
+<head>
+    <script src="js\jquery-2.1.3.min.js"></script>
+</head>
+<body>
+
+    <h1>Hi, I'm the Postman</h1>
+    <h3>View my source, the gold is in there...</h3>
+
+    <script>
+    // THIS FUNCTION HELPS YOU POST STUFF TO SERVER FOR TESTING.
+    // CHANGE THE PARAMETERS TO POST WHATEVER YOU WANT.
+        (function() {
+            // THIS SHOWS THAT THE FUNCTION HAS STARTED RUNNING
+            console.log("Postman is starting...");
+
+            // THIS IS THE JSON OBJECT YOU WANT TO POST WITH
+            var postObj = {};
+            // INSERT THE DATA THAT YOU WANT TO POST
+            postObj["cmd"] = "login"
+
+            // THIS DOES THE ACTUAL POSTING
+            $.post(
+                // THE URL TO POST TO
+                "php/testing.php",
+
+                // THE OBJECT TO POST, DEFINED ABOVE
+                postObj,
+
+                // THE FUNCTION TO CALL WHEN A REPLY IS RECEIVED
+                function(data) {
+                    // ADD EVERYTHING YOU NEED TO DO HERE
+                    console.log(data);
+                    var x = 1 + 1;
+
+                    // THIS SHOWS THAT THE CALLBACK EXECUTED WELL
+                    console.log("Postman is done!");
+                });
+
+            // THIS SHOWS THAT THE POSTMAN HAS POSTED, BUT
+            // NO REPLY FROM SERVER YET.
+            console.log("Postman has posted!");
+        })();
+    // NOTE: this function is anonymous and is called immediately.
+    // You will not be able to access the variables nor the
+    // function itself from the chrome console.
+    </script>
+
+</body>
