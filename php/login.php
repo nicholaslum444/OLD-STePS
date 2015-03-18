@@ -21,11 +21,11 @@
         $result["data"] = null;
         $result["comments"] = null;
 
-        if (isSet($_GET["token"])) {
+        if (isSet($_POST["token"])) {
             $data = [];
 
             // verify the token
-            $token = $_GET["token"];
+            $token = $_POST["token"];
             $isValidToken = isValidToken($token);
 
             // set the user type and success
