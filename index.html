@@ -38,11 +38,15 @@
 	        	    </li>
 	        	</ul>
                 <!-- IMPORTANT! For the (student) log in, redirect the user to this url:  -->
-                <!-- https://ivle.nus.edu.sg/api/login/?apikey=3bBGOIdtC1T2d7SXeQAO9&url=http://steps.tk/php/login.php -->
-                <!-- this will utilise the ivle authentication, and our server will receive the auth token for the user -->
+                <!-- https://ivle.nus.edu.sg/api/login/?apikey=3bBGOIdtC1T2d7SXeQAO9&url=http://steps.tk/example-landing-page.html -->
+
+                <!-- After login, the user will be directed to the landing page url, and the url will have the auth token appended to it. -->
+                <!-- Example: http://steps.tk/example-landing-page.html?token=ATRUWEY8UBB23JKJDA89312JH3B8HB (note: the actual token is very long) -->
+                <!-- Post the token from the url to php/login.php (see example-landing-page.html for code example of how to do this) -->
+                <!-- Our server will then tell you whether the token is valid or not. It will also start the session for the user if valid. -->
 	          <div class="navbar-form navbar-right">
 	        	<button type="button" class="btn btn-success" id="studentLogin">Student</button> 
-	            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginForm">Lecturer</button> <!-- unlikely that there can be two submit buttons for one form. should separate into two forms Nick -->
+	            <button type="button" class="btn btn-success" id="lecturerLogin">Lecturer</button> <!-- unlikely that there can be two submit buttons for one form. should separate into two forms Nick -->
 	          </div>
 	        </div>
         </div><!--/.navbar-collapse -->
@@ -77,27 +81,6 @@
         </div>
       </div>
 
-		<!-- Login Form -->
-		<div class="modal fade" id="loginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-body">
-		      	<div class="form-group">
-		      		<label for="username" class="control-label">Matric Number </label>
-		      		<input type="text" class="form-control" id="username">
-		      	</div>
-		      	<div class="form-group">
-		      		<label for="password" class="control-label">Password </label>
-		      		<input type="password" class="form-control" id="password"></textarea>
-		      	</div>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Login</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
       <hr>
 
       <footer>
