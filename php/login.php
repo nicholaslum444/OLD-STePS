@@ -1,9 +1,10 @@
 <?php
 
-    // php/login.php should be the callback address for the ivle login widget.
-    // the url of this page would contain the token of the logged in user
-    // this file then gets the token from the url and validates it.
-    // once it is validated, then it will send back the token to the calling page.
+    // php/login.php should be called from the page that receives the ivle login token.
+    // that page should POST the token to this script.
+    // the token will be validated here.
+    // then it will send the validation result to the calling page.
+    // it will also start the session if the token is valid.
 
     header("Content-Type: application/json");
 
