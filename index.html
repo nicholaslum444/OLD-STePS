@@ -40,10 +40,10 @@
                 <!-- IMPORTANT! For the (student) log in, redirect the user to this url:  -->
                 <!-- https://ivle.nus.edu.sg/api/login/?apikey=3bBGOIdtC1T2d7SXeQAO9&url=http://steps.tk/php/login.php -->
                 <!-- this will utilise the ivle authentication, and our server will receive the auth token for the user -->
-	          <form class="navbar-form navbar-right" role="form">
-	        	<button type="submit" class="btn btn-success" data-toggle="modal" data-target="#loginForm" data-userType="Student">Student</button> <!--hidden fields to be addressed by Jquery -->
-	            <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#loginForm" data-userType="Lecturer">Lecturer</button> <!-- unlikely that there can be two submit buttons for one form. should separate into two forms --Nick -->
-	          </form>
+	          <div class="navbar-form navbar-right">
+	        	<button type="button" class="btn btn-success" id="studentLogin">Student</button> 
+	            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#loginForm">Lecturer</button> <!-- unlikely that there can be two submit buttons for one form. should separate into two forms Nick -->
+	          </div>
 	        </div>
         </div><!--/.navbar-collapse -->
       </div>
@@ -83,7 +83,7 @@
 		    <div class="modal-content">
 		      <div class="modal-body">
 		      	<div class="form-group">
-		      		<label for="username" class="control-label">NUSNET ID </label>
+		      		<label for="username" class="control-label">Matric Number </label>
 		      		<input type="text" class="form-control" id="username">
 		      	</div>
 		      	<div class="form-group">
