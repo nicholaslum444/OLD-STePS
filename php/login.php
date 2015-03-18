@@ -6,6 +6,7 @@
     // then it will send the validation result to the calling page.
     // it will also start the session if the token is valid.
 
+    // this call returns JSON objects.
     header("Content-Type: application/json");
 
     // where the api key is stored
@@ -14,29 +15,42 @@
     // run main
     main();
 
-    // functions below---
+
+    // helper functions below ~~
 
     function main() {
+        // main function, does the work
         $result = [];
         $result["success"] = false;
         $result["data"] = null;
         $result["comments"] = null;
 
         if (isSet($_POST["token"])) {
-            $data = [];
-
             // verify the token
             $token = $_POST["token"];
             $isValidToken = isValidToken($token);
 
             // set the user type and success
             if ($isValidToken) {
-                $data["token"] = $token;
-                $result["success"] = true;
-                $data["userType"] = getUserType($token);
-            }
+                // get the user type
+                $userType = getUserType($token);
 
-            $result["data"] = $data;
+                // init the session
+                session_start();
+                $_SESSION["token"] = $token;
+                $_SESSION["userType"] = $userType;
+                $_SESSION["loggedIn"] = true;
+
+                // place results in the json
+                $result["success"] = true;
+
+                $data = [];
+                $data["token"] = $token;
+                $data["userType"] = $userType;
+
+                $result["data"] = $data;
+
+            }
 
         }
 
@@ -46,14 +60,17 @@
 
     function isValidToken($token) {
         // call ivle api to validate token
-        $url = "https://ivle.nus.edu.sg/api/Lapi.svc/Validate?APIKey=".apikey."&Token=".$token;
+        $url = "https://ivle.nus.edu.sg/api/Lapi.svc/Validate?APIKey="
+            . apikey
+            . "&Token="
+            . $token;
 
-        $curlResult = json_decode(file_get_contents($url));
+        $apiResult = json_decode(file_get_contents($url));
 
-        if (is_null($curlResult)) {
+        if (is_null($apiResult)) {
             return false;
         } else {
-            return $curlResult->Success == true;
+            return $apiResult->Success == true;
         }
     }
 
