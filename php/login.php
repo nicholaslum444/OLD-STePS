@@ -9,8 +9,7 @@
     // this call returns JSON objects.
     header("Content-Type: application/json");
 
-    // where the api key is stored
-    require_once("apikey.php");
+    require_once("userAuthenticator.php");
 
     // run main
     main();
@@ -21,19 +20,18 @@
     function main() {
         // main function, does the work
         $result = [];
-        $result["success"] = false;
         $result["data"] = null;
-        $result["comments"] = null;
+        $result["meta"] = null;
 
         if (isSet($_POST["token"])) {
             // verify the token
             $token = $_POST["token"];
-            $isValidToken = isValidToken($token);
+            $isValidToken = UserAuthenticator::isValidToken($token);
 
             // set the user type and success
             if ($isValidToken) {
                 // get the user type
-                $userType = getUserType($token);
+                $userType = UserAuthenticator::getUserType($token);
 
                 // init the session
                 session_start();
@@ -41,8 +39,12 @@
                 $_SESSION["userType"] = $userType;
                 $_SESSION["loggedIn"] = true;
 
-                // place results in the json
-                $result["success"] = true;
+                // place results in the return obj
+                $meta = [];
+                $meta["success"] = true;
+                $meta["code"] = 200;
+
+                $result["meta"] = $meta;
 
                 $data = [];
                 $data["token"] = $token;
@@ -50,36 +52,28 @@
 
                 $result["data"] = $data;
 
+            } else {
+                $meta = [];
+                $meta["success"] = false;
+                $meta["code"] = 401;
+                $meta["errorType"] = "Unauthorized";
+                $meta["errorMessage"] = "Token is invalid.";
+
+                $result["meta"] = $meta;
             }
 
+        } else {
+            $meta = [];
+            $meta["success"] = false;
+            $meta["code"] = 400;
+            $meta["errorType"] = "Bad Request";
+            $meta["errorMessage"] = "No token specified.";
+
+            $result["meta"] = $meta;
         }
 
         echo json_encode($result);
 
-    }
-
-    function isValidToken($token) {
-        // call ivle api to validate token
-        $url = "https://ivle.nus.edu.sg/api/Lapi.svc/Validate?APIKey="
-            . apikey
-            . "&Token="
-            . $token;
-
-        $apiResult = json_decode(file_get_contents($url));
-
-        if (is_null($apiResult)) {
-            return false;
-        } else {
-            return $apiResult->Success == true;
-        }
-    }
-
-    function getUserType($token) {
-        // call ivle api to get user type (if possible)
-        // return one of {"student", "lecturer"}
-
-        // dummy value of "student" for now
-        return "student";
     }
 
 ?>

@@ -17,14 +17,23 @@
     function main() {
         // main function, does the work
         $result = [];
-        $result["success"] = true;
         $result["data"] = null;
-        $result["comments"] = null;
+        $result["meta"] = null;
 
         // will destroy session regardless
         session_start();
         session_unset();
         session_destroy();
+
+        $meta = [];
+        $meta["success"] = true;
+        $meta["code"] = 200;
+
+        $result["meta"] = $meta;
+
+        $data = new stdClass();
+
+        $result["data"] = $data;
 
         echo json_encode($result);
 

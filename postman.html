@@ -1,5 +1,11 @@
 <head>
     <script src="js\jquery-2.1.3.min.js"></script>
+    <style>
+        body {
+            font-family: monospace;
+            font-size: 2em;
+        }
+    </style>
 </head>
 <body>
 
@@ -16,12 +22,12 @@
             // THIS IS THE JSON OBJECT YOU WANT TO POST WITH
             var postObj = {};
             // INSERT THE DATA THAT YOU WANT TO POST
-            postObj["cmd"] = "login"
+            postObj["token"] = "773CB18815C1FD61A9451A90E260CDBD339F40E6D4627D4343DB58CAC138D4910FBEB7F0056A87E20491972C87DA25197DB412DED626F93BD1CDA649EB5EBBA4D06B91F9A64A1A67195C6230CDADEAE3A67A83D29878BD15182D8FF8C7F341C61048E50B80E98B3EAA8D50C7D2DE06ED8123834627F55572093705EC2104E41984036EB49B1D8584F8FE439FFF389277C1636A50DAAC5107A63BB52EEC64BC53BD8A4BC5B5E804C84D34DD921434B9943E1B227E52E9A6417E68626452A4ABBCA5C602BACE216FA5C73B63CBB1FDF3E63D3D8BF93B542C75D5D336F5EABD304F2AD68E777364EB7A6320A6E86016C8DD"
 
             // THIS DOES THE ACTUAL POSTING
             $.post(
                 // THE URL TO POST TO
-                "php/testing.php",
+                "php/validate.php",
 
                 // THE OBJECT TO POST, DEFINED ABOVE
                 postObj,
@@ -29,8 +35,7 @@
                 // THE FUNCTION TO CALL WHEN A REPLY IS RECEIVED
                 function(data) {
                     // ADD EVERYTHING YOU NEED TO DO HERE
-                    console.log(data);
-                    var x = 1 + 1;
+                    $("body").html(JSON.stringify(data, null, " "));
 
                     // THIS SHOWS THAT THE CALLBACK EXECUTED WELL
                     console.log("Postman is done!");
