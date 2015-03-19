@@ -1,7 +1,7 @@
 <?php
 
     // where the api key is stored
-    require_once("/php/apikey.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/php/apikey.php");
 
     class UserAuthenticator {
 
