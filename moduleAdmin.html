@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/main.js"></script>
+
+  <title>STePS</title>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">STePs</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <div class="navbar-right"> <!--align right-->
+          <ul class="nav navbar-nav">
+            <li><a href="modules.html">Modules</a></li>
+            <li><a href="?">Sign out</a></li>
+          </ul>
+        </div>
+      </div><!--/.navbar-collapse -->
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <h3>Module <span id="moduleCode">CS1010</span></h3>
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="classSize">Class Size:</label>
+          <div class="col-sm-4">
+            <input type="number" class="form-control" id="classSize" placeholder="Class Size">
+          </div>
+          <label class="control-label col-sm-2" for="numProjects">Number of Projects:</label>
+          <div class="col-sm-4">
+            <input type="number" class="form-control" id="numProjects" placeholder="Number of Projects">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="moduleDescription">Description:</label>
+          <div class="col-sm-10"> 
+            <textarea class="form-control" rows="5" id="moduleDescription" placeholder="Add Description for Module"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="">Project Titles:</label> 
+          <div class="col-sm-5">
+            <input type="text" class="form-control">
+            <input type="text" class="form-control">
+            <input type="text" class="form-control">
+            <input type="text" class="form-control">
+            <input type="text" class="form-control">
+          </div>
+          <div class="col-sm-5"><button type="submit" class="btn btn-default">Add</button></div>
+        </div>
+        <div class="form-group"> 
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+          </div>
+        </div>
+
+      </form> 
+    </div>
+    <hr>
+
+    <footer>
+      <p>&copy; Website for STePs</p>
+    </footer>
+
+  </div> <!-- End of container -->
+
+</body>
+
+</html>
