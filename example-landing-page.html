@@ -25,32 +25,32 @@
         <script>
         // THIS CODE POSTS THE TOKEN (RECEIVED FROM IVLE) TO THE SERVER FOR VERIFICATION
         // THE SERVER WILL START THE SESSION FOR THE USER IF THE TOKEN IS VERIFIED
-        (function() {
-            console.log("Postman is starting...");
+            (function() {
+                console.log("Postman is starting...");
 
-            var postObj = {};
-            
-            // getUrlparam is a custom method, check source in the jquery.js
-            postObj["token"] = $.getUrlParam("token");
+                var postObj = {};
 
-            console.log(postObj);
+                // getUrlparam is a custom method, check source in the jquery.js
+                postObj["token"] = $.getUrlParam("token");
 
-            $.post(
-                // post to this url to "login" the user to our servers.
-                "php/login.php",
+                console.log(postObj);
 
-                postObj, // the obj containing the token
+                $.post(
+                    // post to this url to "login" the user to our servers.
+                    "/api/v1/user/student/login.php",
 
-                // this function processes the return data
-                function(data) {
-                    // add steps to process the data received from the server
-                    console.log(data);
-                    // recommended step: store the token in the localstorage.
-                    // the token may be used to verify the session of the user.
+                    postObj, // the obj containing the token
 
-                    // all done
-                    console.log("Postman is done!");
-                });
+                    // this function processes the return data
+                    function(data) {
+                        // add steps to process the data received from the server
+                        console.log(data);
+                        // recommended step: store the token in the localstorage.
+                        // the token may be used to verify the session of the user.
+
+                        // all done
+                        console.log("Postman is done!");
+                    });
 
                 console.log("Postman has sent your data!");
             })();

@@ -8,7 +8,7 @@
     // this call returns JSON objects.
     header("Content-Type: application/json");
 
-    require_once("userAuthenticator.php");
+    require_once("/php/helpers/userAuthenticator.php");
 
     // run main
     main();
