@@ -9,7 +9,7 @@
     // this call returns JSON objects.
     header("Content-Type: application/json");
 
-    require_once("/php/helpers/userAuthenticator.php");
+    require_once($_SERVER['DOCUMENT_ROOT']."/php/helpers/userAuthenticator.php");
 
     // run main
     main();
@@ -17,7 +17,10 @@
 
     // helper functions below ~~
 
-    function main() {
+/**
+ *
+ */
+function main() {
         // main function, does the work
         $result = [];
         $result["data"] = new stdClass();
