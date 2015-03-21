@@ -20,8 +20,8 @@
     function main() {
         // main function, does the work
         $result = [];
-        $result["data"] = null;
-        $result["meta"] = null;
+        $result["data"] = new stdClass();
+        $result["meta"] = new stdClass();
 
         if (isSet($_POST["token"])) {
             // verify the token

@@ -1,92 +1,92 @@
 <?php
 
-    // php/validate.php can be called from any page that requires user validation.
-    // that page should POST the token to this script.
-    // the token will be validated here.
-    // then it will send the validation result to the calling page.
+// php/validate.php can be called from any page that requires user validation.
+// that page should POST the token to this script.
+// the token will be validated here.
+// then it will send the validation result to the calling page.
 
-    // this call returns JSON objects.
-    header("Content-Type: application/json");
+// this call returns JSON objects.
+header("Content-Type: application/json");
 
-    require_once($_SERVER['DOCUMENT_ROOT']."/php/helpers/userAuthenticator.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/php/helpers/userAuthenticator.php");
 
-    // run main
-    main();
+// run main
+main();
 
 
-    // helper functions below ~~
+// helper functions below ~~
 
-    function main() {
-        // main function, does the work
-        $result = [];
-        $result["data"] = null;
-        $result["meta"] = null;
+function main() {
+    // main function, does the work
+    $result = [];
+    $result["data"] = new stdClass();
+    $result["meta"] = new stdClass();
 
-        if (isSet($_POST["token"])) {
-            // resume the session to check saved token
-            session_start();
-            $token = $_POST["token"];
+    if (isSet($_POST["token"])) {
+        // resume the session to check saved token
+        session_start();
+        $token = $_POST["token"];
 
-            if (isSet($_SESSION["loggedIn"])
-                && isSet($_SESSION["token"])
-                && $token == $_SESSION["token"]) {
+        if (isSet($_SESSION["loggedIn"])
+            && isSet($_SESSION["token"])
+            && $token == $_SESSION["token"]) {
 
-                $isValidToken = UserAuthenticator::isValidToken($token);
+            $isValidToken = UserAuthenticator::isValidToken($token);
 
-                // set the user type and success
-                if ($isValidToken) {
-                    // get the user type
-                    $userType = UserAuthenticator::getUserType($token);
+            // set the user type and success
+            if ($isValidToken) {
+                // get the user type
+                $userType = UserAuthenticator::getUserType($token);
 
-                    // init the session
-                    $_SESSION["token"] = $token;
-                    $_SESSION["userType"] = $userType;
+                // init the session
+                $_SESSION["token"] = $token;
+                $_SESSION["userType"] = $userType;
 
-                    // place results in the return obj
-                    $meta = [];
-                    $meta["success"] = true;
-                    $meta["code"] = 200;
+                // place results in the return obj
+                $meta = [];
+                $meta["success"] = true;
+                $meta["code"] = 200;
 
-                    $result["meta"] = $meta;
+                $result["meta"] = $meta;
 
-                    $data = [];
-                    $data["token"] = $token;
-                    $data["userType"] = $userType;
+                $data = [];
+                $data["token"] = $token;
+                $data["userType"] = $userType;
 
-                    $result["data"] = $data;
+                $result["data"] = $data;
 
-                } else { // token matches session token but not valid
-                    $meta = [];
-                    $meta["success"] = false;
-                    $meta["code"] = 401;
-                    $meta["errorType"] = "Unauthorized";
-                    $meta["errorMessage"] = "Token is invalid.";
-
-                    $result["meta"] = $meta;
-                }
-
-            } else { // token does not match session token
+            } else { // token matches session token but not valid
                 $meta = [];
                 $meta["success"] = false;
                 $meta["code"] = 401;
                 $meta["errorType"] = "Unauthorized";
-                $meta["errorMessage"] = "Token does not match the session token, or user is not logged in.";
+                $meta["errorMessage"] = "Token is invalid.";
 
                 $result["meta"] = $meta;
             }
 
-        } else { // no token given
+        } else { // token does not match session token
             $meta = [];
             $meta["success"] = false;
-            $meta["code"] = 400;
-            $meta["errorType"] = "Bad Request";
-            $meta["errorMessage"] = "No token specified.";
+            $meta["code"] = 401;
+            $meta["errorType"] = "Unauthorized";
+            $meta["errorMessage"] = "Token does not match the session token, or user is not logged in.";
 
             $result["meta"] = $meta;
         }
 
-        echo json_encode($result);
+    } else { // no token given
+        $meta = [];
+        $meta["success"] = false;
+        $meta["code"] = 400;
+        $meta["errorType"] = "Bad Request";
+        $meta["errorMessage"] = "No token specified.";
 
+        $result["meta"] = $meta;
     }
+
+    echo json_encode($result);
+
+}
 
 ?>

@@ -1,42 +1,42 @@
 <?php
 
-    // php/logout.php should be called by the logout button (on any page).
-    // this script will end the current user's session.
-    // that page should POST the auth token to this script.
-    // even though i'm not processing the token now, it might still be useful.
+// php/logout.php should be called by the logout button (on any page).
+// this script will end the current user's session.
+// that page should POST the auth token to this script.
+// even though i'm not processing the token now, it might still be useful.
 
-    // this call returns JSON objects.
-    header("Content-Type: application/json");
+// this call returns JSON objects.
+header("Content-Type: application/json");
 
-    // run main
-    main();
+// run main
+main();
 
 
-    // helper functions below ~~
+// helper functions below ~~
 
-    function main() {
-        // main function, does the work
-        $result = [];
-        $result["data"] = null;
-        $result["meta"] = null;
+function main() {
+    // main function, does the work
+    $result = [];
+    $result["data"] = new stdClass();
+    $result["meta"] = new stdClass();
 
-        // will destroy session regardless
-        session_start();
-        session_unset();
-        session_destroy();
+    // will destroy session regardless
+    session_start();
+    session_unset();
+    session_destroy();
 
-        $meta = [];
-        $meta["success"] = true;
-        $meta["code"] = 200;
+    $meta = [];
+    $meta["success"] = true;
+    $meta["code"] = 200;
 
-        $result["meta"] = $meta;
+    $result["meta"] = $meta;
 
-        $data = new stdClass();
+    $data = new stdClass();
 
-        $result["data"] = $data;
+    $result["data"] = $data;
 
-        echo json_encode($result);
+    echo json_encode($result);
 
-    }
+}
 
 ?>
