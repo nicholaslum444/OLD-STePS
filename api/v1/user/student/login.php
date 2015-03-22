@@ -6,6 +6,9 @@
 // then it will send the validation result to the calling page.
 // it will also start the session if the token is valid.
 
+// POST params
+// - token
+
 // this call returns JSON objects.
 header("Content-Type: application/json");
 

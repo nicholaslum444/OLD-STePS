@@ -1,21 +1,25 @@
 <?php
 
-    // php/login.php should be called from the page that receives the ivle login token.
-    // that page should POST the token to this script.
-    // the token will be validated here.
-    // then it will send the validation result to the calling page.
-    // it will also start the session if the token is valid.
+// php/login.php should be called from the page that receives the ivle login token.
+// that page should POST the token to this script.
+// the token will be validated here.
+// then it will send the validation result to the calling page.
+// it will also start the session if the token is valid.
 
-    // this call returns JSON objects.
-    header("Content-Type: application/json");
+// POST
+// - username
+// - password
 
-    require_once($_SERVER['DOCUMENT_ROOT']."/php/helpers/userAuthenticator.php");
+// this call returns JSON objects.
+header("Content-Type: application/json");
 
-    // run main
-    main();
+require_once($_SERVER['DOCUMENT_ROOT']."/php/helpers/userAuthenticator.php");
+
+// run main
+main();
 
 
-    // helper functions below ~~
+// helper functions below ~~
 
 /**
  *

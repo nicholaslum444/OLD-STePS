@@ -5,6 +5,9 @@
 // the token will be validated here.
 // then it will send the validation result to the calling page.
 
+// POST params
+// -token
+
 // this call returns JSON objects.
 header("Content-Type: application/json");
 

@@ -5,6 +5,9 @@
 // that page should POST the auth token to this script.
 // even though i'm not processing the token now, it might still be useful.
 
+// POST parameters
+// -token
+
 // this call returns JSON objects.
 header("Content-Type: application/json");
 
