@@ -41,42 +41,56 @@
     </div>
   </nav>
 
-  <!-- For new registration, moduleCode = 'New Module' and all fields are open -->
-  <!-- If the lecturer clicks on an existing module, all fields are to be filled in and greyed out -->
-  <!-- When edit button is clicked, they will be editable -->
-
   <div class="container">
     <div class="row">
-      <h3>Module <span id="moduleCode">CS1010</span></h3>
       <form class="form-horizontal" role="form">
+        
         <div class="form-group">
-          <label class="control-label col-sm-2" for="classSize">Class Size:</label>
-          <div class="col-sm-4">
-            <input type="number" class="form-control" id="classSize" placeholder="Class Size">
-          </div>
-          <label class="control-label col-sm-2" for="numProjects">Number of Projects:</label>
-          <div class="col-sm-4">
-            <input type="number" class="form-control" id="numProjects" placeholder="Number of Projects">
-          </div>
-        </div>
+          <label class="control-label col-sm-2" for="module">Module Code</label>
+          <div class="col-sm-10">
+            <select id ="module">
+             <option value="Module 1">Module 1</option>
+             <option value="Module 2">Module 2</option>
+             <option value="Module 3">Module 3</option>
+           </select>         
+         </div>
+       </div>
 
         <div class="form-group">
-          <label class="control-label col-sm-2" for="moduleDescription">Description:</label>
-          <div class="col-sm-10"> 
-            <textarea class="form-control" rows="5" id="moduleDescription" placeholder="Add Description for Module"></textarea>
-          </div>
+          <label class="control-label col-sm-2" for="projectTitle">Project</label>
+          <div class="col-sm-10">
+            <select id ="projectTitle">
+             <option value="Project 1">Project 1</option>
+             <option value="Project 2">Project 2</option>
+             <option value="Project 3">Project 3</option>
+             <option value="Project 4">Project 4</option>
+           </select>         
+         </div>
+       </div>
+
+       <div class="form-group">
+        <label class="control-label col-sm-2">Team Members</label>
+        <div class="col-sm-10">
+          <select>
+            <option value="Tom">Tom</option>
+            <option value="Dick">Dick</option>
+            <option value="Harry">Harry</option>
+          </select>  
+          <br />
+          <select>
+            <option value="Tom">Tom</option>
+            <option value="Dick">Dick</option>
+            <option value="Harry">Harry</option>
+          </select>  
+          <br />
+          <select>
+            <option value="Tom">Tom</option>
+            <option value="Dick">Dick</option>
+            <option value="Harry">Harry</option>
+          </select>  
+          <br />
         </div>
-        <div class="form-group">
-          <label class="control-label col-sm-2" for="">Project Titles:</label> 
-          <div class="col-sm-5">
-            <input type="text" class="form-control">
-            <input type="text" class="form-control">
-            <input type="text" class="form-control">
-            <input type="text" class="form-control">
-            <input type="text" class="form-control">
-          </div>
-          <div class="col-sm-5"><button type="submit" class="btn btn-default">Add</button></div>
-        </div>
+
         <div class="form-group"> 
           <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-default">Submit</button>

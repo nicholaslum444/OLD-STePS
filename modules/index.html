@@ -19,46 +19,59 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.html">STePs</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <div class="navbar-right"> <!--align right-->
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="/modules">Modules</a></li>
-            </ul>
-          </div>
-        </div><!--/.navbar-collapse -->
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/index.html">STePs</a>
       </div>
-    </nav>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-       <p>stub</p>
-    </div><!--End md-6-->
-
-    <div class="col-md-6">
+      <div id="navbar" class="navbar-collapse collapse">
+        <div class="navbar-right"> <!--align right-->
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/modules">Modules</a></li>
+          </ul>
+        </div>
+      </div><!--/.navbar-collapse -->
     </div>
+  </nav>
 
-</div>   
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar"><!--List of modules to be generated-->
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="?">Module1</a></li>
+            <li><a href="?">Module2</a></li>
+            <li><a href="?">Module3</a></li>
+            <li><a href="?">Module4</a></li>
+          </ul>
+        </div>
 
-<hr>
+      <div class="col-md-10">        
+        <div class="panel panel-default">
+          <div class="panel-body">
+           <p>Modules participating and their information</p> 
+         </div>
+       </div>
+     </div>
 
-<footer>
-  <p>&copy; Website for STePs</p>
-</footer>
+   </div>      
+
+   <hr>
+
+   <footer>
+    <p>&copy; Website for STePs</p>
+  </footer>
 
 </div> <!-- End of container -->
 
 </body>
 
 </html>
+
+

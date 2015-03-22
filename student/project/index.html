@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+
+  <script src="/js/jquery-2.1.3.min.js"></script>
+  <script src="/js/bootstrap.js"></script>
+  <script src="/js/main.js"></script>
+
+  <title>STePS</title>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/index.html">STePs</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <div class="navbar-right"> <!--align right-->
+          <ul class="nav navbar-nav">
+            <li><a href="/modules">Modules</a></li>
+            <li><a href="?">Sign out</a></li>
+          </ul>
+        </div>
+      </div><!--/.navbar-collapse -->
+    </div>
+  </nav>
+
+  <!-- If the student clicks on an existing module all fields are to be filled in and greyed out -->
+  <!-- edit button is only available to leaders and lecturers -->
+  <!-- When edit button is clicked, they will be editable -->
+
+  <div class="container">
+    <div class="row">
+      <form class="form-horizontal" role="form">
+
+        <div class="form-group">
+          <h2 class="control-label col-sm-2">Project Title</h2>
+        </div>
+
+        <div class="form-group">
+          <div class="memberEntry"><!-- Duplicate starts here -->
+            <label class="control-label col-sm-2">Team Member</label>         
+            <div class="col-sm-10">
+              <div class="col-sm-4"> 
+                <label class="control-label col-sm-2" for="name">Name:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="name" placeholder="Name">
+                </div>
+              </div>
+              <div class="col-sm-4"> 
+                <label class="control-label col-sm-4" for="matricNum">Matric Number:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="matricNum" placeholder="Matric">
+                </div>
+              </div>
+              <div class="col-sm-4"> 
+               <label class="control-label col-sm-4" for="mobile">Mobile:</label>
+               <div class="col-sm-8">
+                <input type="text" class="form-control" id="mobile" placeholder="Mobile">
+              </div>
+            </div>
+          </div> <!-- End of md-10 nested fields-->
+
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10">
+            <div class="col-sm-4"> 
+              <label class="control-label col-sm-2" for="email">Email:</label>
+              <div class="col-sm-10">
+               <input type="email" class="form-control" id="email" placeholder="Email">
+             </div>
+           </div>
+           <div class="col-sm-4"> 
+            <label class="control-label col-sm-4" for="food">Food Preference</label>
+            <div class="radio col-sm-8">
+              <label><input type="radio" name="food" value="Non-Vegeterians">Non-Vegeterians</label>
+              <label><input type="radio" name="food" value="Vegeterians">Vegeterians</label>
+            </div>
+          </div>
+        </div> 
+      </div> <!-- End of duplicate class, end of md-10 nested fields-->
+      
+      <div class="memberEntry"><!-- Duplicate starts here -->
+        <label class="control-label col-sm-2">Team Member</label>         
+        <div class="col-sm-10">
+          <div class="col-sm-4"> 
+            <label class="control-label col-sm-2" for="name">Name:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="name" placeholder="Name">
+            </div>
+          </div>
+          <div class="col-sm-4"> 
+            <label class="control-label col-sm-4" for="matricNum">Matric Number:</label>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="matricNum" placeholder="Matric">
+            </div>
+          </div>
+          <div class="col-sm-4"> 
+           <label class="control-label col-sm-4" for="mobile">Mobile:</label>
+           <div class="col-sm-8">
+            <input type="text" class="form-control" id="mobile" placeholder="Mobile">
+          </div>
+        </div>
+      </div> <!-- End of md-10 nested fields-->
+
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10">
+        <div class="col-sm-4"> 
+          <label class="control-label col-sm-2" for="email">Email:</label>
+          <div class="col-sm-10">
+           <input type="email" class="form-control" id="email" placeholder="Email">
+         </div>
+       </div>
+       <div class="col-sm-4"> 
+        <label class="control-label col-sm-4" for="food">Food Preference</label>
+        <div class="radio col-sm-8">
+          <label><input type="radio" name="food" value="Non-Vegeterians">Non-Vegeterians</label>
+          <label><input type="radio" name="food" value="Vegeterians">Vegeterians</label>
+        </div>
+      </div>
+    </div> 
+  </div> <!-- End of duplicate class, end of md-10 nested fields-->
+</div> <!-- End of form group -->
+
+
+<div class="form-group">
+  <label class="control-label col-sm-2" for="abstract">Abstract:</label>
+  <div class="col-sm-10"> 
+    <textarea class="form-control" rows="5" id="abstract" placeholder="Abstract for your project"></textarea>
+  </div>
+</div>
+
+<div class="form-group"> 
+  <div class="col-sm-offset-2 col-sm-10">
+    <button type="submit" class="btn btn-default">Submit</button>
+  </div>
+</div>
+
+</form> 
+</div>
+<hr>
+
+<footer>
+  <p>&copy; Website for STePs</p>
+</footer>
+
+</div> <!-- End of container -->
+
+</body>
+
+</html>
